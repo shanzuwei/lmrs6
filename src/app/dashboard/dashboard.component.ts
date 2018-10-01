@@ -42,6 +42,7 @@ export class DashboardComponent implements OnInit {
         } else {
           this.gridListHeight = '590px';
         }
+        console.log('breakpoints: ', result.breakpoints, '  match: ', result.matches);
       });
 
 
