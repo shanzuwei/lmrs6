@@ -11,12 +11,14 @@ import {
   MatListModule, MatGridListModule, MatCardModule, MatMenuModule
 } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FullpageDirective } from './directive/fullpage.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    DashboardComponent
+    DashboardComponent,
+    FullpageDirective
   ],
   imports: [
     BrowserModule,
