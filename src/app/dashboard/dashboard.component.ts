@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit {
 
   /** grid list height dynamic */
   gridListHeight = '590px';
+  gridListCols = 2;
 
   constructor(private breakpointObserver: BreakpointObserver) {
 
@@ -39,10 +40,13 @@ export class DashboardComponent implements OnInit {
       .subscribe(result => {
         if (result.matches) {
           this.gridListHeight = '500px';
+          this.gridListCols = 1;
         } else {
           this.gridListHeight = '590px';
+          this.gridListCols = 2;
         }
-        console.log('breakpoints: ', result.breakpoints, '  match: ', result.matches);
+        console.log('breakpointObserver breakpoints: ', result.breakpoints,
+          '  match: ', result.matches, ' cols: ', this.gridListCols);
       });
 
 
@@ -58,7 +62,7 @@ export class DashboardComponent implements OnInit {
       'height': this.gridListHeight
     };
 
-    console.log('gridListHeight : ', this.gridListHeight);
+    console.log('setgridheight : ', this.gridListHeight, ' cols: ', this.gridListCols);
 
     return styles;
   }
