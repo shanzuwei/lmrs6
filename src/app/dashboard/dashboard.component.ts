@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 
 import { DashboardhostDirective } from './../directive/dashboardhost.directive';
-import {CardsComponentItem, CardsComponent} from './cards-component';
+import { CardsComponentItem, CardsComponent } from './cards-component';
 import { DmrsComponent } from './../dmrs/dmrs.component';
 import { SmrsComponent } from './../smrs/smrs.component';
 
@@ -13,10 +13,10 @@ import { SmrsComponent } from './../smrs/smrs.component';
   styleUrls: ['./dashboard.component.css']
 })
 
- export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy {
 
- // @ViewChild(DashboardhostDirective) dashboardHost: DashboardhostDirective;
-  @ViewChild('dashboardhost', { read: ViewContainerRef }) dashboardHost;
+  @ViewChild(DashboardhostDirective) dashboardHost: DashboardhostDirective;
+  // @ViewChild('dashboardhost', { read: ViewContainerRef }) dashboardHost;
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -39,9 +39,9 @@ import { SmrsComponent } from './../smrs/smrs.component';
     })
   );
   cardsComponentIndex = -1;
-  cardsComponents =  [
-    new CardsComponentItem(DmrsComponent, {name: 'Bombasto', bio: 'Brave as they come'}),
-    new CardsComponentItem(SmrsComponent, {name: 'Dr IQ', bio: 'Smart as they come'}),
+  cardsComponents = [
+    new CardsComponentItem(DmrsComponent, { name: 'Bombasto', bio: 'Brave as they come' }),
+    new CardsComponentItem(SmrsComponent, { name: 'Dr IQ', bio: 'Smart as they come' }),
   ];
 
   /** grid list height dynamic */
@@ -86,9 +86,9 @@ import { SmrsComponent } from './../smrs/smrs.component';
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(cardsComponentItem.component);
 
     // create component, and insert into host
-    // const viewContainerRef = this.dashboardHost.viewContainerRef;
-    this.dashboardHost.clear();
-    const componentRef = this.dashboardHost.createComponent(componentFactory);
+    const viewContainerRef = this.dashboardHost.viewContainerRef;
+    viewContainerRef.clear();
+    const componentRef = viewContainerRef.createComponent(componentFactory);
 
     // ??
     // (<CardsComponent>componentRef.instance).data = cardsComponent.data;
