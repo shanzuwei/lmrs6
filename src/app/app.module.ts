@@ -12,13 +12,19 @@ import {
 } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FullpageDirective } from './directive/fullpage.directive';
+import { DmrsComponent } from './dmrs/dmrs.component';
+import { SmrsComponent } from './smrs/smrs.component';
+import { DashboardhostDirective } from './directive/dashboardhost.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     DashboardComponent,
-    FullpageDirective
+    FullpageDirective,
+    DmrsComponent,
+    SmrsComponent,
+    DashboardhostDirective
   ],
   imports: [
     BrowserModule,
@@ -35,6 +41,7 @@ import { FullpageDirective } from './directive/fullpage.directive';
     MatMenuModule
   ],
   providers: [],
+  entryComponents: [ DmrsComponent, SmrsComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

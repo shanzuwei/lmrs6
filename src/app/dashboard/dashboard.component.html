@@ -1,7 +1,13 @@
+<div>
+  dynamic load is here !
+  <ng-template #dashboardhost>
+    </ng-template>
+</div>
+
 <div class="grid-container ">
-  <h1 class="mat-h1">Dashboard</h1>
+  <!-- <h1 class="mat-h1">Dashboard</h1> -->
   <div>
-    <mat-grid-list  [ngStyle]="setgridheight()"  [cols]="gridListCols" rowHeight="fit">
+    <mat-grid-list [ngStyle]="setgridheight()" [cols]="gridListCols" rowHeight="fit">
       <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
         <mat-card class="dashboard-card">
           <mat-card-header>
@@ -17,7 +23,14 @@
             </mat-card-title>
           </mat-card-header>
           <mat-card-content class="dashboard-card-content">
-            <div>Card Content Here</div>
+            <div>
+
+              ng-template with directive - appDashboardhost ...
+              <!-- <ng-template appDashboardhost>
+              </ng-template> -->
+
+
+            </div>
           </mat-card-content>
         </mat-card>
       </mat-grid-tile>
