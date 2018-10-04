@@ -54,8 +54,8 @@ export class DashboardComponent implements OnInit {
           this.gridListHeight = '590px';
           this.gridListCols = 2;
         }
-        console.log('breakpointObserver breakpoints: ', result.breakpoints,
-          '  match: ', result.matches, ' cols: ', this.gridListCols);
+        // console.log('breakpointObserver breakpoints: ', result.breakpoints,
+        //   '  match: ', result.matches, ' cols: ', this.gridListCols);
       });
 
 

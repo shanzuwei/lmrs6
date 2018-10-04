@@ -10,16 +10,19 @@ import { AdComponent } from './ad.component';
 })
 export class DynamicLoaderComponent implements OnInit, OnDestroy {
 
-  @Input() ads: AdItem[];
-  currentAdIndex = -1;
+  @Input() ads: AdItem[];  // component list from adService
+  @Input() adsIndex: number;
+
+  currentAdIndex: number;
   @ViewChild(AdDirective) adHost: AdDirective;
   interval: any;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
+    this.currentAdIndex = this.adsIndex - 1;
     this.loadComponent();
-    this.getAds();
+    // this.getAds();
   }
 
   ngOnDestroy() {
@@ -28,10 +31,10 @@ export class DynamicLoaderComponent implements OnInit, OnDestroy {
 
   loadComponent() {
     this.currentAdIndex = (this.currentAdIndex + 1) % this.ads.length;
+    // console.log('adsIndex:', this.adsIndex, '  currentAdIndex: ', this.currentAdIndex, '  ads.length: ', this.ads.length);
+
     const adItem = this.ads[this.currentAdIndex];
-
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(adItem.component);
-
     const viewContainerRef = this.adHost.viewContainerRef;
     viewContainerRef.clear();
 

@@ -2,7 +2,7 @@
   <h1 class="mat-h1">Dashboard</h1>
   <div>
     <mat-grid-list [ngStyle]="setgridheight()" [cols]="gridListCols" rowHeight="fit">
-      <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-grid-tile *ngFor="let card of cards | async; index as i" [colspan]="card.cols" [rowspan]="card.rows">
         <mat-card class="dashboard-card">
           <mat-card-header>
             <mat-card-title>
@@ -20,7 +20,7 @@
 
             <!-- card content goes here ! -->
             <!-- <h3>app-dynamic-loader with input array of [ads] </h3> -->
-            <app-dynamic-loader [ads]="ads"> </app-dynamic-loader>
+            <app-dynamic-loader [ads]="ads" [adsIndex]="i"> </app-dynamic-loader>
 
           </mat-card-content>
         </mat-card>
