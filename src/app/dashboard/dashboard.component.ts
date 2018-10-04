@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 
+import { AdService } from './../service/ad.service';
+import { AdItem } from '../dynamic-loader/ad-item';
+
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -33,7 +37,12 @@ export class DashboardComponent implements OnInit {
   gridListHeight = '590px';
   gridListCols = 2;
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  // loader @input array
+  ads: AdItem[];
+
+
+  //
+  constructor(private breakpointObserver: BreakpointObserver, private adService: AdService) {
 
     breakpointObserver
       .observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait])
@@ -51,18 +60,19 @@ export class DashboardComponent implements OnInit {
 
 
   }
-  ngOnInit() {
-    // console.log('gridListHeight1 : ', this.gridListHeight1);
-    // console.log('gridListHeight : ', this.gridListHeight);
 
+  //
+  ngOnInit() {
+    this.ads = this.adService.getAds();
   }
 
+  //
   public setgridheight() {
     const styles = {
       'height': this.gridListHeight
     };
 
-    console.log('setgridheight : ', this.gridListHeight, ' cols: ', this.gridListCols);
+    // console.log('setgridheight : ', this.gridListHeight, ' cols: ', this.gridListCols);
 
     return styles;
   }

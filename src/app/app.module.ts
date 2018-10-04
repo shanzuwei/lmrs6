@@ -11,14 +11,28 @@ import {
   MatListModule, MatGridListModule, MatCardModule, MatMenuModule
 } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SmrsComponent } from './smrs/smrs.component';
+import { DmrsComponent } from './dmrs/dmrs.component';
+import { RegyyComponent } from './regyy/regyy.component';
+import { PlaybookComponent } from './playbook/playbook.component';
+
 import { FullpageDirective } from './directive/fullpage.directive';
+import { DynamicLoaderComponent } from './dynamic-loader/dynamic-loader.component';
+import { AdDirective } from './directive/ad.directive';
+import { AdService } from './service/ad.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     DashboardComponent,
-    FullpageDirective
+    FullpageDirective,
+    DynamicLoaderComponent,
+    AdDirective,
+    SmrsComponent,
+    DmrsComponent,
+    RegyyComponent,
+    PlaybookComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +48,8 @@ import { FullpageDirective } from './directive/fullpage.directive';
     MatCardModule,
     MatMenuModule
   ],
-  providers: [],
+  entryComponents: [SmrsComponent, DmrsComponent, RegyyComponent, PlaybookComponent],
+  providers: [AdService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
