@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input, ViewChild, ComponentFactoryResolver } from '@angular/core';
-import { AdItem } from './ad-item';
-import { AdDirective } from '../directive/ad.directive';
-import { AdComponent } from './ad.component';
+import { ComponentItem } from './component-item';
+import { HostDirective } from '../directive/host-directive';
+import { ComponentInterface } from './component-interface';
 
 @Component({
   selector: 'app-dynamic-loader',
@@ -10,19 +10,19 @@ import { AdComponent } from './ad.component';
 })
 export class DynamicLoaderComponent implements OnInit, OnDestroy {
 
-  @Input() ads: AdItem[];  // component list from adService
-  @Input() adsIndex: number;
+  @Input() componentItems: ComponentItem[];  // component list
+  @Input() componentItemsIndex: number;
 
   currentAdIndex: number;
-  @ViewChild(AdDirective) adHost: AdDirective;
+  @ViewChild(HostDirective) adHost: HostDirective;
   interval: any;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
-    this.currentAdIndex = this.adsIndex - 1;
+    this.currentAdIndex = this.componentItemsIndex - 1;
     this.loadComponent();
-    // this.getAds();
+    // this.getcomponentItems();
   }
 
   ngOnDestroy() {
@@ -30,19 +30,18 @@ export class DynamicLoaderComponent implements OnInit, OnDestroy {
   }
 
   loadComponent() {
-    this.currentAdIndex = (this.currentAdIndex + 1) % this.ads.length;
-    // console.log('adsIndex:', this.adsIndex, '  currentAdIndex: ', this.currentAdIndex, '  ads.length: ', this.ads.length);
+    this.currentAdIndex = (this.currentAdIndex + 1) % this.componentItems.length;
 
-    const adItem = this.ads[this.currentAdIndex];
+    const adItem = this.componentItems[this.currentAdIndex];
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(adItem.component);
     const viewContainerRef = this.adHost.viewContainerRef;
     viewContainerRef.clear();
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
-    (<AdComponent>componentRef.instance).data = adItem.data;
+    (<ComponentInterface>componentRef.instance).data = adItem.data;
   }
 
-  getAds() {
+  getcomponentItems() {
     this.interval = setInterval(() => {
       this.loadComponent();
     }, 3000);

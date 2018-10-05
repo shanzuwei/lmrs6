@@ -16,19 +16,17 @@ import { DmrsComponent } from './dmrs/dmrs.component';
 import { RegyyComponent } from './regyy/regyy.component';
 import { PlaybookComponent } from './playbook/playbook.component';
 
-import { FullpageDirective } from './directive/fullpage.directive';
 import { DynamicLoaderComponent } from './dynamic-loader/dynamic-loader.component';
-import { AdDirective } from './directive/ad.directive';
-import { AdService } from './service/ad.service';
+import { HostDirective } from './directive/host-directive';
+import { ComponentItemsService } from './service/component.items.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     DashboardComponent,
-    FullpageDirective,
     DynamicLoaderComponent,
-    AdDirective,
+    HostDirective,
     SmrsComponent,
     DmrsComponent,
     RegyyComponent,
@@ -49,7 +47,7 @@ import { AdService } from './service/ad.service';
     MatMenuModule
   ],
   entryComponents: [SmrsComponent, DmrsComponent, RegyyComponent, PlaybookComponent],
-  providers: [AdService],
+  providers: [ComponentItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

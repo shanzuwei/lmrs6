@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 
-import { AdService } from './../service/ad.service';
-import { AdItem } from '../dynamic-loader/ad-item';
+import { ComponentItemsService } from '../service/component.items.service';
+import { ComponentItem } from '../dynamic-loader/component-item';
 
 
 @Component({
@@ -38,11 +38,11 @@ export class DashboardComponent implements OnInit {
   gridListCols = 2;
 
   // loader @input array
-  ads: AdItem[];
+  componentItems: ComponentItem[];
 
 
   //
-  constructor(private breakpointObserver: BreakpointObserver, private adService: AdService) {
+  constructor(private breakpointObserver: BreakpointObserver, private componentItemsService: ComponentItemsService) {
 
     breakpointObserver
       .observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait])
@@ -63,7 +63,7 @@ export class DashboardComponent implements OnInit {
 
   //
   ngOnInit() {
-    this.ads = this.adService.getAds();
+    this.componentItems = this.componentItemsService.getComponentItems();
   }
 
   //

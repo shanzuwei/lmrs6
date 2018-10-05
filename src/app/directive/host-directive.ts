@@ -1,13 +1,11 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[appAdDirective]',
+  selector: '[appHostDirective]'
 })
-export class AdDirective {
-  constructor(public viewContainerRef: ViewContainerRef) { }
+export class HostDirective {
+  constructor(public viewContainerRef: ViewContainerRef) {}
 }
-
-
 
 /*
 Copyright 2017-2018 Google Inc. All Rights Reserved.

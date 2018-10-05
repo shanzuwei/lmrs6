@@ -1,5 +1,7 @@
-export interface AdComponent {
-  data: any;
+import { Type } from '@angular/core';
+
+export class ComponentItem {
+  constructor(public component: Type<any>, public data: any) {}
 }
 
 
