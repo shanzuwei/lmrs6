@@ -11,10 +11,10 @@ import {
   MatListModule, MatGridListModule, MatCardModule, MatMenuModule
 } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SmrsComponent } from './smrs/smrs.component';
-import { DmrsComponent } from './dmrs/dmrs.component';
-import { RegyyComponent } from './regyy/regyy.component';
-import { PlaybookComponent } from './playbook/playbook.component';
+import { SmrsComponent } from './widgets/smrs/smrs.component';
+import { DmrsComponent } from './widgets/dmrs/dmrs.component';
+import { RegyyComponent } from './widgets/regyy/regyy.component';
+import { PlaybookComponent } from './widgets/playbook/playbook.component';
 
 import { DynamicLoaderComponent } from './dynamic-loader/dynamic-loader.component';
 import { HostDirective } from './directive/host-directive';

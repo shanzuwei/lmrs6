@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ComponentInterface } from '../dynamic-loader/component-interface';
+import { ComponentInterface } from '../../dynamic-loader/component-interface';
 
 @Component({
   selector: 'app-smrs',

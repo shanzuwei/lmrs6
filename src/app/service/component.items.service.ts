@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import { ComponentItem } from '../dynamic-loader/component-item';
-import { SmrsComponent } from '../smrs/smrs.component';
-import { DmrsComponent } from '../dmrs/dmrs.component';
-import { RegyyComponent } from '../regyy/regyy.component';
-import { PlaybookComponent } from '../playbook/playbook.component';
+import { SmrsComponent } from '../widgets/smrs/smrs.component';
+import { DmrsComponent } from '../widgets/dmrs/dmrs.component';
+import { RegyyComponent } from '../widgets/regyy/regyy.component';
+import { PlaybookComponent } from '../widgets/playbook/playbook.component';
 
 @Injectable()
 export class ComponentItemsService {
